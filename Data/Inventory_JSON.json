@@ -4,7 +4,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/apple.png",
     "price": 2.99,
     "description": "Organic, delicious Honeycrisp Apple, grown and harvested at a local farm.",
-    "gorceryid": 1
+    "groceryid": 1
 
   },
 
@@ -13,7 +13,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/artichoke.png",
     "price": 3.49,
     "description": "Our green Artichokes are produced year round, the highest quality with the freshest taste.",
-    "gorceryid": 2
+    "groceryid": 2
 
 
   },
@@ -23,7 +23,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/aubergine.png",
     "price": 5.49,
     "description": "Mild, earthy-flavored Aubergine that has the most velvety texture inside.",
-    "gorceryid": 3
+    "groceryid": 3
   },
 
   {
@@ -31,7 +31,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/avocado.png",
     "price": 3.99,
     "description": "Delicious Hass Avocados have a buttery texture and rich flavor. Ripe and ready to eat!",
-    "gorceryid": 4
+    "groceryid": 4
   },
 
   {
@@ -47,7 +47,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/artichoke.png",
     "price": 3.49,
     "description": "Nutritious and low in calories! Fresh green Broccoli that has a satisfying crunch.",
-    "gorceryid": 6
+    "groceryid": 6
   },
 
   {
@@ -63,7 +63,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/chili-pepper.png",
     "price": 1.99,
     "description": "Bright red, spicy Chili Peppers. Add heat to all of your favorite dishes.",
-    "gorceryid": 8
+    "groceryid": 8
   },
 
   {
@@ -79,7 +79,7 @@
     "imgsrc": "https://content.codecademy.com/courses/asp-dot-net/food_icons/cupcake.png",
     "price": 5.99,
     "description": "Delicious chocolate cake with buttercream icing. Freshly made by a local bakery.",
-    "gorceryid": 10
+    "groceryid": 10
   }
 
   
