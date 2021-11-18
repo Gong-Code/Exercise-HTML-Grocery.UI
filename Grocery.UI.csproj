@@ -8,4 +8,9 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Grocery.Core\Grocery.Core.csproj" />
+    <ProjectReference Include="..\Grocery.Data\Grocery.Data.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,5 @@
-using Grocery.UI.DataAccess;
-using Grocery.UI.Model;
+using Grocery.Data.DataAccess;
+using Grocery.Data.DataAccess.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -20,8 +20,8 @@ namespace Grocery.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IShoppingCart, ShoppingCart>();
-            services.AddScoped<Iinventory, inventory>();
+            services.AddScoped<IInventoryDataAccess, InventoryDataAccess_JSON>();
+            services.AddScoped<ICartDataAccess, CartDataAccess_JSON>();
             services.AddRazorPages();
         }
 

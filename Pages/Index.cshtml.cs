@@ -1,5 +1,5 @@
-﻿using Grocery.UI.DataAccess;
-using Grocery.UI.Model;
+﻿using Grocery.Core.Models;
+using Grocery.Data.DataAccess.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
@@ -9,18 +9,19 @@ namespace Grocery.UI.Pages
 {
     public class IndexModel : PageModel
     {
-        public List<GroceryItem> Foods { get; set; }
-       
-        private readonly Iinventory _inventory;
+        private readonly IInventoryDataAccess inventoryDataAccess;
 
-        public IndexModel(Iinventory inventory)
+        public List<Product> Foods { get; set; }
+       
+
+        public IndexModel(IInventoryDataAccess inventoryDataAccess)
         {
-            _inventory = inventory;
+            this.inventoryDataAccess = inventoryDataAccess;
         }
 
         public void OnGet()
         {
-            Foods = _inventory.GetAll().ToList();
+            Foods = inventoryDataAccess.GetAll();
 
         }
 

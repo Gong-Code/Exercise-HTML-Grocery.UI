@@ -1,5 +1,5 @@
-using Grocery.UI.DataAccess;
-using Grocery.UI.Model;
+using Grocery.Core.Models;
+using Grocery.Data.DataAccess.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Linq;
@@ -8,7 +8,8 @@ namespace Grocery.UI.Pages.GroceryStore
 {
     public class DetailModel : PageModel
     {
-        private readonly IShoppingCart _shoppingCart;
+        private readonly ICartDataAccess cartDataAccess;
+        private readonly IInventoryDataAccess inventoryDataAccess;
 
         [BindProperty]
         public double Price { get; set; }
@@ -19,28 +20,31 @@ namespace Grocery.UI.Pages.GroceryStore
         public int Quantity { get; set; }
 
         [BindProperty]
-        public GroceryItem GroceryItem { get; private set; }
+        public Product Product { get; private set; }
+        public Cart Cart { get; private set; }
 
-        public DetailModel(IShoppingCart shoppingCart)
+        public DetailModel(ICartDataAccess cartDataAccess, IInventoryDataAccess inventoryDataAccess) //
         {
-
-            _shoppingCart = shoppingCart;
+           
+            this.cartDataAccess = cartDataAccess;
+            this.inventoryDataAccess = inventoryDataAccess;
         }
 
 
         public void OnGet(int id)
         {
-            GroceryItem = _shoppingCart.GetAll().ToList().FirstOrDefault(x => x.GroceryID == id); //Search through all inventory item and find specific id, and return true or false.
+            Product = inventoryDataAccess.GetById(id); //Search through all inventory item and find specific id, and return true or false.
         }
 
         public IActionResult OnPostAdd()
         {
-            GroceryItem = _shoppingCart.GetAll().ToList().FirstOrDefault(x => x.GroceryID == Id);
+            Product = inventoryDataAccess.GetById(Id);
 
             if (ModelState.IsValid)
             {
-                var cartItem = _shoppingCart.GetAll().ToList().FirstOrDefault(x => x.GroceryID == Id);
-                _shoppingCart.AddToCart(cartItem);
+                Cart = cartDataAccess.GetById(Id);
+                Cart.Products.Add(Product);
+                cartDataAccess.UpdateCart(Cart);
                 return Page();
             }
 
