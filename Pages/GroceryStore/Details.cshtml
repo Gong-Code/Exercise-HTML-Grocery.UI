@@ -4,7 +4,7 @@
 }
 
 <div id="top-container" class="text-center">
-    <h2 class="font-weight-bold">
+    <h2 class="font-weight-bold text-success">
         @Model.GroceryItem.Name
     </h2>
     <img id="big-food-icon" style="height:15rem" src="@Model.GroceryItem.ImageSrc">
@@ -14,7 +14,7 @@
 <hr />
 
 <div id="description-container">
-    <p>@Model.GroceryItem.Description </p>
+    <p class="font-weight-bold text-info">@Model.GroceryItem.Description </p>
 </div>
 
 <hr />
@@ -23,20 +23,20 @@
 <div id="pricing-container" class="d-flex font-weight-bold">
     <span id="unit-price" class="d-none">@Model.GroceryItem.Price</span>
     <div class="col text-left">
-        <label for="quantity">Quantity:</label>
-        <input type="number" asp-for="Quantity" value="1">
+        <form method="post">
+            <label for="quantity">Quantity:</label>
+            <input type="number" asp-for="Quantity" value="1">
+        </form>
     </div>
 
     <div class="col text-right">
-        Total: $<span id="total-price">@(Model.GroceryItem.Price)</span>
+        Total: $<span id="total-price">@(Model.GroceryItem.Price )</span>
     </div>
     <br />
     <form asp-page-handler="Add">
-        <input type="hidden" asp-for="@Model.Id" value="@Model.GroceryItem.GroceryID" />
+        <input type="hidden" asp-for="Id" value="@Model.GroceryItem.GroceryID" />
         <div id="buy-button" class="text-right">
-            <button type="submit" class="btn btn-primary btn-lg">
-                Add to cart
-            </button>
+            <a asp-page="/AddToCart" asp-route-id="@Model.GroceryItem.GroceryID" class="btn btn-primary">Add to cart</a>
 
         </div>
     </form>
